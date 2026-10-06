@@ -277,7 +277,8 @@ img {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 1rem;
+    flex-wrap: nowrap;
 }
 
 .logo {
@@ -288,6 +289,8 @@ img {
     font-size: var(--fs-lg);
     font-weight: 800;
     letter-spacing: -0.01em;
+    white-space: nowrap;
+    flex-shrink: 0;
     transition: transform var(--transition-speed) var(--cubic-bounce);
 }
 
@@ -305,6 +308,11 @@ img {
     color: #fff;
     border-radius: var(--radius-sm);
     box-shadow: 0 0 15px var(--primary-glow);
+    flex-shrink: 0;
+}
+
+.logo-text {
+    white-space: nowrap;
 }
 
 .accent-dot {
@@ -315,17 +323,19 @@ img {
 .header-search {
     display: flex;
     align-items: center;
-    gap: 0.6rem;
-    padding: 0.4rem 1rem;
+    gap: 0.5rem;
+    padding: 0.4rem 0.8rem;
     border-radius: var(--radius-full);
     background: var(--glass-bg);
     border: 1px solid var(--border-color);
-    width: 240px;
+    width: 180px;
+    flex-shrink: 1;
+    white-space: nowrap;
     transition: width var(--transition-speed) var(--cubic-smooth), border-color var(--transition-speed) var(--cubic-smooth);
 }
 
 .header-search:focus-within {
-    width: 280px;
+    width: 220px;
     border-color: var(--primary);
     background: rgba(99, 102, 241, 0.05);
 }
@@ -333,12 +343,14 @@ img {
 .search-icon {
     color: var(--text-dim);
     font-size: 0.85rem;
+    flex-shrink: 0;
 }
 
 .header-search input {
     width: 100%;
     font-size: var(--fs-xs);
     color: var(--text-main);
+    white-space: nowrap;
 }
 
 .header-search input::placeholder {
@@ -348,7 +360,14 @@ img {
 .nav-list {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.1rem;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+.nav-item {
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .nav-link {
@@ -360,6 +379,8 @@ img {
     gap: 0.4rem;
     position: relative;
     padding: 0.4rem 0;
+    white-space: nowrap;
+    flex-shrink: 0;
     transition: color var(--transition-speed) var(--cubic-smooth);
 }
 
@@ -389,7 +410,9 @@ img {
 .header-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.8rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 /* Theme Toggle Button Micro-interaction */
@@ -470,6 +493,8 @@ img {
     position: relative;
     overflow: hidden;
     isolation: isolate;
+    white-space: nowrap;
+    flex-shrink: 0;
     transition: transform var(--transition-speed) var(--cubic-bounce), box-shadow var(--transition-speed) var(--cubic-smooth), background-color var(--transition-speed) var(--cubic-smooth);
     will-change: transform;
 }
