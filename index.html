@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mai Huy Phong | Interactive Showcase & Smart Interface</title>
-    <meta name="description" content="Trang chủ dự án Tuần 5 - Interactive Showcase & Smart Interface của Mai Huy Phong. Tích hợp Semantic HTML, CSS Grid/Flexbox, AOS Scroll Revelation & High-performance Micro-interactions.">
+    <title>Mai Huy Phong | Smart Interactive Showcase (Tuần 3 - Tuần 6)</title>
+    <meta name="description" content="Trang chủ dự án tổng hợp Tuần 3 - Tuần 6 của Mai Huy Phong. Tích hợp Semantic HTML, CSS Grid/Flexbox Layout, Design System Tokens, Responsive Mobile-First & 60FPS Micro-interactions.">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
     
     <!-- FontAwesome Icons CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,46 +21,54 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Background Canvas Grid & Glow Effect -->
+    <!-- Background Glow & Grid Overlay -->
     <div class="bg-glow-container" aria-hidden="true">
         <div class="bg-glow blob-1"></div>
         <div class="bg-glow blob-2"></div>
         <div class="bg-grid-overlay"></div>
     </div>
 
-    <!-- Header Navigation Section -->
+    <!-- Header Navigation Bar (Tuần 3 Flexbox Nav + Tuần 4 Responsive Search & Menu) -->
     <header class="header" id="header">
         <div class="container header-container">
+            <!-- Logo -->
             <a href="#hero" class="logo" aria-label="Mai Huy Phong Home">
                 <span class="logo-icon"><i class="fa-solid fa-code"></i></span>
                 <span class="logo-text">MAI HUY PHONG<span class="accent-dot">.</span></span>
             </a>
 
+            <!-- Search Bar (Desktop / Laptop Header Feature) -->
+            <div class="header-search">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="Tìm kiếm kỹ năng, dự án..." aria-label="Search items">
+            </div>
+
+            <!-- Navigation Links -->
             <nav class="nav-menu" id="nav-menu" aria-label="Main Navigation">
                 <ul class="nav-list">
                     <li class="nav-item"><a href="#hero" class="nav-link active"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
                     <li class="nav-item"><a href="#about" class="nav-link"><i class="fa-solid fa-compass"></i> UX Mindset</a></li>
-                    <li class="nav-item"><a href="#portfolio" class="nav-link"><i class="fa-solid fa-layer-group"></i> Portfolio</a></li>
+                    <li class="nav-item"><a href="#portfolio" class="nav-link"><i class="fa-solid fa-layer-group"></i> Portfolio 3D</a></li>
+                    <li class="nav-item"><a href="#pricing" class="nav-link"><i class="fa-solid fa-tags"></i> Dịch Vụ</a></li>
                     <li class="nav-item"><a href="#playground" class="nav-link"><i class="fa-solid fa-sliders"></i> Bezier Lab</a></li>
                     <li class="nav-item"><a href="#contact" class="nav-link"><i class="fa-solid fa-paper-plane"></i> Liên hệ</a></li>
                 </ul>
             </nav>
 
+            <!-- Header Action Controls -->
             <div class="header-actions">
-                <!-- Theme Switcher -->
-                <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Chuyển đổi giao diện sáng/tối" title="Chuyển đổi Dark/Light mode">
+                <button class="icon-btn theme-toggle" id="theme-toggle" aria-label="Chuyển đổi giao diện sáng/tối" title="Chuyển đổi Dark/Light Mode">
                     <i class="fa-solid fa-moon moon-icon"></i>
                     <i class="fa-solid fa-sun sun-icon"></i>
                 </button>
 
-                <!-- CTA Button -->
                 <a href="#portfolio" class="btn btn-primary btn-cta">
-                    <span>Khám Phá Ngay</span>
+                    <span>Khám Phá Dự Án</span>
                     <i class="fa-solid fa-arrow-right icon-arrow"></i>
                 </a>
 
-                <!-- Mobile Menu Toggle -->
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Mở menu">
+                <!-- Mobile Hamburger Menu Button -->
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Mở menu điều hướng">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -69,476 +77,610 @@
         </div>
     </header>
 
-    <!-- Main Content Area -->
-    <main id="main-content">
-        
-        <!-- SECTION 1: HERO SECTION WITH INTRO ANIMATION -->
-        <section class="hero-section" id="hero">
-            <div class="container hero-grid">
-                <!-- Hero Left Text Content -->
-                <div class="hero-content">
-                    <div class="badge intro-badge">
-                        <span class="badge-dot"></span>
-                        <span class="badge-text">Tuần 5 · Interactive Showcase</span>
-                    </div>
-
-                    <h1 class="hero-title">
-                        Thiết Kế Giao Diện <br>
-                        <span class="gradient-text">Tương Tác Thông Minh</span>
-                    </h1>
-
-                    <p class="hero-subtitle">
-                        Chào mừng bạn đến với không gian trải nghiệm Web tương tác của <strong>Mai Huy Phong</strong>. Tích hợp <em>Semantic HTML</em>, <em>Design System</em>, và các chuyển động mượt mà đạt chuẩn 60FPS với tư duy <strong>UX Vibe Coding</strong>.
-                    </p>
-
-                    <div class="hero-actions">
-                        <a href="#portfolio" class="btn btn-primary btn-magnetic">
-                            <i class="fa-solid fa-rocket"></i>
-                            <span>Xem Thẻ Flip Interactive</span>
-                        </a>
-                        <a href="#playground" class="btn btn-secondary">
-                            <i class="fa-solid fa-wand-magic-sparkles"></i>
-                            <span>Thử Bezier Control</span>
-                        </a>
-                    </div>
-
-                    <div class="hero-metrics">
-                        <div class="metric-item">
-                            <span class="metric-number" data-target="60">0</span><span class="metric-unit">FPS</span>
-                            <span class="metric-label">Tối ưu GPU Hardware</span>
-                        </div>
-                        <div class="metric-divider"></div>
-                        <div class="metric-item">
-                            <span class="metric-number" data-target="100">0</span><span class="metric-unit">%</span>
-                            <span class="metric-label">Transform & Opacity</span>
-                        </div>
-                        <div class="metric-divider"></div>
-                        <div class="metric-item">
-                            <span class="metric-number" data-target="5">0</span><span class="metric-unit">/5</span>
-                            <span class="metric-label">Cấp độ Tuần Học</span>
-                        </div>
-                    </div>
+    <!-- MAIN HERO SECTION -->
+    <section class="hero-section" id="hero">
+        <div class="container hero-grid">
+            <!-- Left Content -->
+            <div class="hero-content">
+                <div class="badge intro-badge">
+                    <span class="badge-dot"></span>
+                    <span class="badge-text">Tuần 3 - Tuần 6 · Smart Showcase</span>
                 </div>
 
-                <!-- Hero Right Interactive 3D Card -->
-                <div class="hero-visual">
-                    <div class="interactive-hero-card" id="hero-card">
-                        <div class="card-glow"></div>
-                        <div class="card-inner">
-                            <div class="card-header-badge">
-                                <i class="fa-solid fa-shield-halved"></i> MAI HUY PHONG CORE SYSTEM
+                <h1 class="hero-title">
+                    Thiết Kế Giao Diện <br>
+                    <span class="gradient-text">Tương Tác Thông Minh</span>
+                </h1>
+
+                <p class="hero-subtitle">
+                    Sản phẩm tổng hợp nâng cao của <strong>Mai Huy Phong</strong> (LHU - 111101). Kết hợp <em>CSS Grid & Flexbox</em>, <em>Design System CSS Tokens</em>, <em>Responsive Mobile-First</em> và các chuyển động <strong>60FPS GPU Accelerated</strong>.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#portfolio" class="btn btn-primary btn-magnetic">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span>Xem Flip Cards 3D</span>
+                    </a>
+                    <a href="#playground" class="btn btn-secondary">
+                        <i class="fa-solid fa-flask"></i>
+                        <span>Bezier Control Lab</span>
+                    </a>
+                </div>
+
+                <!-- Live Metrics Counter -->
+                <div class="hero-metrics">
+                    <div class="metric-item">
+                        <span class="metric-number" data-target="60">0</span><span class="metric-unit">FPS</span>
+                        <span class="metric-label">Tối ưu GPU Hardware</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-number" data-target="100">0</span><span class="metric-unit">%</span>
+                        <span class="metric-label">Mobile-First Ready</span>
+                    </div>
+                    <div class="metric-divider"></div>
+                    <div class="metric-item">
+                        <span class="metric-number" data-target="6">0</span><span class="metric-unit">/6</span>
+                        <span class="metric-label">Cấp Độ Tuần Học</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right 3D Visual Card -->
+            <div class="hero-visual">
+                <div class="interactive-hero-card" id="hero-card">
+                    <div class="card-glow"></div>
+                    <div class="card-inner">
+                        <div class="card-header-badge">
+                            <i class="fa-solid fa-shield-halved"></i> MAI HUY PHONG CORE CONFIG
+                        </div>
+                        <div class="preview-screen">
+                            <div class="screen-header">
+                                <span class="dot red"></span>
+                                <span class="dot yellow"></span>
+                                <span class="dot green"></span>
+                                <span class="screen-title">smart_showcase.config.js</span>
                             </div>
-                            <div class="preview-screen">
-                                <div class="screen-header">
-                                    <span class="dot red"></span>
-                                    <span class="dot yellow"></span>
-                                    <span class="dot green"></span>
-                                    <span class="screen-title">smart_interface.config.js</span>
-                                </div>
-                                <div class="code-editor">
-                                    <pre><code><span class="code-keyword">const</span> showcase = {
+                            <div class="code-editor">
+                                <pre><code><span class="code-keyword">const</span> showcase = {
   author: <span class="code-string">"Mai Huy Phong"</span>,
   course: <span class="code-string">"Thiết Kế Web (111101)"</span>,
   institution: <span class="code-string">"Đại Học Lạc Hồng"</span>,
-  performance: {
-    gpuAccelerated: <span class="code-boolean">true</span>,
-    noReflowAttrs: [<span class="code-string">"transform"</span>, <span class="code-string">"opacity"</span>],
-    cubicBezier: <span class="code-string">"cubic-bezier(0.16, 1, 0.3, 1)"</span>
+  architecture: {
+    layout: [<span class="code-string">"CSS Grid"</span>, <span class="code-string">"Flexbox"</span>],
+    designSystem: <span class="code-string">"CSS Variables & Mobile-First"</span>,
+    animations: <span class="code-string">"60FPS GPU Transform & AOS"</span>
   },
-  status: <span class="code-string">"READY_FOR_EVALUATION"</span>
+  status: <span class="code-string">"COMPLETED_W1_TO_W6"</span>
 };</code></pre>
-                                </div>
                             </div>
-                            <div class="card-footer-tags">
-                                <span class="tech-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
-                                <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> CSS Variables</span>
-                                <span class="tech-tag"><i class="fa-brands fa-js"></i> ES6+</span>
-                                <span class="tech-tag"><i class="fa-solid fa-bolt"></i> AOS Scroll</span>
-                            </div>
+                        </div>
+                        <div class="card-footer-tags">
+                            <span class="tech-tag"><i class="fa-brands fa-html5"></i> Semantic HTML5</span>
+                            <span class="tech-tag"><i class="fa-brands fa-css3-alt"></i> Flex & Grid</span>
+                            <span class="tech-tag"><i class="fa-solid fa-mobile-screen"></i> Mobile First</span>
+                            <span class="tech-tag"><i class="fa-solid fa-wand-magic-sparkles"></i> 60FPS Motion</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SECTION 2: UX MINDSET & DESIGN SYSTEM (SCROLL REVELATION) -->
-        <section class="section about-section" id="about">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up" data-aos-duration="800">
-                    <span class="section-tag"><i class="fa-solid fa-brain"></i> TƯ DUY NỔI BẬT</span>
-                    <h2 class="section-title">Triết Lý Thiết Kế <span class="gradient-text">Micro-interactions</span></h2>
+    <!-- SECTION 2: GRID LAYOUT SYSTEM & SIDEBAR (Tuần 3 & Tuần 4 CSS Grid 2-Column Main + Sidebar Layout) -->
+    <section class="section main-layout-section" id="about">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-tag"><i class="fa-solid fa-table-columns"></i> BỐ CỤC CSS GRID & FLEXBOX</span>
+                <h2 class="section-title">Hệ Thống Lưới & <span class="gradient-text">UX Mindset</span></h2>
+                <p class="section-description">
+                    Dàn trang chuẩn bằng CSS Grid 2 chiều kết hợp Flexbox 1 chiều cho thành phần con, quản lý linh hoạt bằng biến CSS và Media Queries.
+                </p>
+            </div>
+
+            <div class="layout-grid-container">
+                <!-- SIDEBAR PANEL (25% Width on Desktop, Sticky on Scroll, Flexbox Skills Tags) -->
+                <aside class="sidebar-panel" data-aos="fade-right">
+                    <!-- Sidebar Widget 1: Author Card -->
+                    <div class="widget-card author-widget">
+                        <div class="author-avatar-box">
+                            <div class="avatar-circle">MHP</div>
+                            <span class="status-online" title="Đang sẵn sàng"></span>
+                        </div>
+                        <h3 class="author-name">Mai Huy Phong</h3>
+                        <p class="author-role">Web UI/UX Developer</p>
+                        <p class="author-bio">Sinh viên Ngành Thiết Kế Web - ĐH Lạc Hồng. Đam mê Vibe Coding và tối ưu giao diện mượt mà.</p>
+                        <div class="author-socials">
+                            <a href="https://github.com" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Widget 2: Skills List (Tuần 3 Activity 2 Flexbox Wrap Requirement) -->
+                    <div class="widget-card skills-widget">
+                        <h4 class="widget-title"><i class="fa-solid fa-microchip"></i> Kỹ Năng (Flexbox Wrap)</h4>
+                        <div class="skills-flex-container">
+                            <span class="skill-pill"><i class="fa-brands fa-html5"></i> HTML5</span>
+                            <span class="skill-pill"><i class="fa-brands fa-css3-alt"></i> CSS Grid</span>
+                            <span class="skill-pill"><i class="fa-solid fa-code"></i> Flexbox</span>
+                            <span class="skill-pill"><i class="fa-solid fa-palette"></i> Design System</span>
+                            <span class="skill-pill"><i class="fa-solid fa-mobile-screen"></i> Mobile First</span>
+                            <span class="skill-pill"><i class="fa-brands fa-js"></i> ES6+ JS</span>
+                            <span class="skill-pill"><i class="fa-solid fa-gauge-high"></i> 60FPS Motion</span>
+                            <span class="skill-pill"><i class="fa-solid fa-terminal"></i> Vibe Code</span>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar Widget 3: Highlights -->
+                    <div class="widget-card highlights-widget">
+                        <h4 class="widget-title"><i class="fa-solid fa-star"></i> Tiêu Điểm Dự Án</h4>
+                        <ul class="highlight-list">
+                            <li><i class="fa-solid fa-circle-check"></i> 100% GPU Acceleration</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Clean Code W3C Standard</li>
+                            <li><i class="fa-solid fa-circle-check"></i> Dynamic Cubic-Bezier Lab</li>
+                        </ul>
+                    </div>
+                </aside>
+
+                <!-- MAIN CONTENT AREA (75% Width on Desktop) -->
+                <main class="main-content-area">
+                    <div class="features-grid">
+                        <!-- Card 1 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+                            <div class="feature-icon-wrapper icon-purple">
+                                <i class="fa-solid fa-gauge-high"></i>
+                            </div>
+                            <h3>60FPS Performance</h3>
+                            <p>Tuyệt đối loại bỏ <code>top</code>, <code>left</code> gây Layout Reflow. 100% chuyển động tạo bằng GPU-accelerated <code>transform: translate3d()</code> và <code>opacity</code>.</p>
+                            <div class="feature-badge">Tối Ưu GPU</div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+                            <div class="feature-icon-wrapper icon-blue">
+                                <i class="fa-solid fa-bezier-curve"></i>
+                            </div>
+                            <h3>Master Cubic-Bezier</h3>
+                            <p>Tinh chỉnh đường cong thời gian tự nhiên với <code>cubic-bezier(0.34, 1.56, 0.64, 1)</code> cho hiệu ứng nảy (elastic spring bounce) sang trọng.</p>
+                            <div class="feature-badge">Vibe Coding</div>
+                        </div>
+
+                        <!-- Card 3 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+                            <div class="feature-icon-wrapper icon-pink">
+                                <i class="fa-solid fa-hand-pointer"></i>
+                            </div>
+                            <h3>Micro-Feedback</h3>
+                            <p>Mọi hành động click, hover đều kèm theo phản hồi thị giác: Ripple waves, magnetic pull effect, glass glow border và active elevation changes.</p>
+                            <div class="feature-badge">Trải Nghiệm Liền Mạch</div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
+                            <div class="feature-icon-wrapper icon-emerald">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <h3>Mobile First Responsive</h3>
+                            <p>Tự động thích ứng mượt mà từ màn hình Mobile 320px đến 4K UltraWide, sử dụng Media Queries chuẩn và biến CSS Tokens.</p>
+                            <div class="feature-badge">Đa Thiết Bị</div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 3: INTERACTIVE PORTFOLIO & 3D FLIP CARDS -->
+    <section class="section portfolio-section" id="portfolio">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-tag"><i class="fa-solid fa-cubes"></i> DỰ ÁN & SẢN PHẨM</span>
+                <h2 class="section-title">Interactive Portfolio <span class="gradient-text">Flip Showcase</span></h2>
+                <p class="section-description">
+                    Di chuột hoặc nhấp nút lật thẻ 3D (Flip Card) để xem mặt sau chứa các thông số kỹ thuật chi tiết của từng sản phẩm.
+                </p>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="portfolio-filter-wrapper" data-aos="fade-up" data-aos-delay="100">
+                <div class="filter-buttons" role="tablist" aria-label="Bộ lọc dự án">
+                    <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true"><i class="fa-solid fa-globe"></i> Tất Cả Dự Án</button>
+                    <button class="filter-btn" data-filter="ui" role="tab" aria-selected="false"><i class="fa-solid fa-palette"></i> Smart UI/UX</button>
+                    <button class="filter-btn" data-filter="animation" role="tab" aria-selected="false"><i class="fa-solid fa-wand-magic-sparkles"></i> 3D Motion</button>
+                    <button class="filter-btn" data-filter="system" role="tab" aria-selected="false"><i class="fa-solid fa-gears"></i> Design System</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Cards Grid (Tuần 3 Grid Layout + Tuần 5 3D Flip) -->
+            <div class="portfolio-grid">
+
+                <!-- Card 1 -->
+                <div class="flip-card-container" data-category="ui" data-aos="zoom-in-up" data-aos-delay="100">
+                    <div class="flip-card">
+                        <!-- Front -->
+                        <div class="flip-card-front">
+                            <div class="card-image-box">
+                                <div class="card-img-placeholder bg-gradient-1">
+                                    <i class="fa-solid fa-laptop-code card-hero-icon"></i>
+                                </div>
+                                <span class="card-category-badge">Smart Interface</span>
+                                <button class="flip-trigger-btn" aria-label="Lật thẻ xem chi tiết">
+                                    <i class="fa-solid fa-rotate"></i> Lật thẻ
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">Mai Huy Phong Dashboard</h3>
+                                <p class="card-text">Giao diện điều khiển thông minh với đồ thị tương tác và hiệu ứng thủy tinh Glassmorphism.</p>
+                                <div class="card-tech-list">
+                                    <span>CSS Grid</span>
+                                    <span>Flexbox</span>
+                                    <span>Variables</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back">
+                            <div class="card-back-header">
+                                <span class="back-title">Thông Số Kỹ Thuật</span>
+                                <button class="flip-close-btn" aria-label="Quay lại"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                            <ul class="back-spec-list">
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>AOS Scroll:</strong> Fade-up 800ms</li>
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>Bezier Curve:</strong> 0.16, 1, 0.3, 1</li>
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>GPU Hardware:</strong> Accelerated 3D rotateY</li>
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>Responsive:</strong> Mobile-First Breakpoints</li>
+                            </ul>
+                            <div class="card-back-actions">
+                                <a href="#playground" class="btn btn-sm btn-primary">Thử Motion Lab</a>
+                                <button class="btn btn-sm btn-outline flip-close-btn-text">Quay lại mặt trước</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="flip-card-container" data-category="animation" data-aos="zoom-in-up" data-aos-delay="200">
+                    <div class="flip-card">
+                        <!-- Front -->
+                        <div class="flip-card-front">
+                            <div class="card-image-box">
+                                <div class="card-img-placeholder bg-gradient-2">
+                                    <i class="fa-solid fa-cube card-hero-icon"></i>
+                                </div>
+                                <span class="card-category-badge">3D Micro-interactions</span>
+                                <button class="flip-trigger-btn" aria-label="Lật thẻ xem chi tiết">
+                                    <i class="fa-solid fa-rotate"></i> Lật thẻ
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">Interactive Product Showcase</h3>
+                                <p class="card-text">Hệ thống Card lật 3D hiển thị đa chiều thông tin và phản hồi thao tác tức thì.</p>
+                                <div class="card-tech-list">
+                                    <span>Perspective 3D</span>
+                                    <span>RotateY</span>
+                                    <span>Backface-visibility</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back">
+                            <div class="card-back-header">
+                                <span class="back-title">Thông Số Kỹ Thuật</span>
+                                <button class="flip-close-btn" aria-label="Quay lại"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                            <ul class="back-spec-list">
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>Hover Effect:</strong> Dynamic Tilt & Glow</li>
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>Spring Physics:</strong> Custom Bezier Curve</li>
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>Zero Reflow:</strong> Transform Matrix3D</li>
+                            </ul>
+                            <div class="card-back-actions">
+                                <a href="#contact" class="btn btn-sm btn-primary">Gửi Đánh Giá</a>
+                                <button class="btn btn-sm btn-outline flip-close-btn-text">Quay lại mặt trước</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="flip-card-container" data-category="system" data-aos="zoom-in-up" data-aos-delay="300">
+                    <div class="flip-card">
+                        <!-- Front -->
+                        <div class="flip-card-front">
+                            <div class="card-image-box">
+                                <div class="card-img-placeholder bg-gradient-3">
+                                    <i class="fa-solid fa-swatchbook card-hero-icon"></i>
+                                </div>
+                                <span class="card-category-badge">Design System</span>
+                                <button class="flip-trigger-btn" aria-label="Lật thẻ xem chi tiết">
+                                    <i class="fa-solid fa-rotate"></i> Lật thẻ
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <h3 class="card-title">Mai Huy Phong Tokens & UI Kit</h3>
+                                <p class="card-text">Bộ quy chuẩn biến CSS và thành phần giao diện tái sử dụng giúp đồng bộ phong cách toàn trang.</p>
+                                <div class="card-tech-list">
+                                    <span>CSS Tokens</span>
+                                    <span>Dark Mode</span>
+                                    <span>Accessibility</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Back -->
+                        <div class="flip-card-back">
+                            <div class="card-back-header">
+                                <span class="back-title">Thông Số Kỹ Thuật</span>
+                                <button class="flip-close-btn" aria-label="Quay lại"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                            <ul class="back-spec-list">
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>Variable System:</strong> Color Palette & Spacing</li>
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>Theme Engine:</strong> HSL Dark/Light Mode</li>
+                                <li><i class="fa-solid fa-check-circle"></i> <strong>Focus Visible:</strong> WCAG 2.1 Compliant</li>
+                            </ul>
+                            <div class="card-back-actions">
+                                <a href="#about" class="btn btn-sm btn-primary">Xem Chi Tiết</a>
+                                <button class="btn btn-sm btn-outline flip-close-btn-text">Quay lại mặt trước</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 4: PRICING / SERVICES CARDS (Tuần 3 Bài Tập 2 Flexbox Cards Requirement) -->
+    <section class="section pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <span class="section-tag"><i class="fa-solid fa-tags"></i> DỊCH VỤ & BẢNG GIÁ</span>
+                <h2 class="section-title">Gói Dịch Vụ <span class="gradient-text">Thiết Kế Web</span></h2>
+                <p class="section-description">
+                    Bảng giá dịch vụ ứng dụng Flexbox căn chỉnh nút CTA luôn sát đáy thẻ (Equal Height Flexbox Cards).
+                </p>
+            </div>
+
+            <div class="pricing-grid">
+                <!-- Plan 1 -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Basic Package</h3>
+                        <div class="plan-price"><span class="currency">$</span>199<span class="period">/dự án</span></div>
+                        <p class="plan-desc">Dành cho website cá nhân hoặc landing page giới thiệu cơ bản.</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Giao diện Semantic HTML5 & CSS3</li>
+                        <li><i class="fa-solid fa-check"></i> Chuẩn Responsive Mobile First</li>
+                        <li><i class="fa-solid fa-check"></i> Chuyển động CSS Transition căn bản</li>
+                        <li class="disabled"><i class="fa-solid fa-xmark"></i> Thư viện AOS & 3D Flip Cards</li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn btn-outline btn-block">Đăng Ký Ngay</a>
+                    </div>
+                </div>
+
+                <!-- Plan 2 (Featured) -->
+                <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="200">
+                    <div class="popular-tag">Nổi Bật Nhất</div>
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Pro Smart Interface</h3>
+                        <div class="plan-price"><span class="currency">$</span>499<span class="period">/dự án</span></div>
+                        <p class="plan-desc">Giao diện thông minh tích hợp 60FPS Animation & Design System.</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Toàn bộ tính năng gói Basic</li>
+                        <li><i class="fa-solid fa-check"></i> 3D Tilt & Flip Card Showcase</li>
+                        <li><i class="fa-solid fa-check"></i> AOS Scroll Revelation Engine</li>
+                        <li><i class="fa-solid fa-check"></i> Dark/Light Mode Theme Switching</li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn btn-primary btn-block">Chọn Gói Pro</a>
+                    </div>
+                </div>
+
+                <!-- Plan 3 -->
+                <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="pricing-header">
+                        <h3 class="plan-name">Enterprise Custom</h3>
+                        <div class="plan-price"><span class="currency">$</span>999<span class="period">/dự án</span></div>
+                        <p class="plan-desc">Giải pháp UI/UX cao cấp với Vibe Coding Prompting độc quyền.</p>
+                    </div>
+                    <ul class="plan-features">
+                        <li><i class="fa-solid fa-check"></i> Toàn bộ tính năng gói Pro</li>
+                        <li><i class="fa-solid fa-check"></i> Tùy chỉnh Cubic-Bezier Lab</li>
+                        <li><i class="fa-solid fa-check"></i> Tối ưu GPU Hardware 60FPS</li>
+                        <li><i class="fa-solid fa-check"></i> Hỗ trợ Git Review & Refactoring</li>
+                    </ul>
+                    <div class="pricing-footer">
+                        <a href="#contact" class="btn btn-outline btn-block">Liên Hệ Tư Vấn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION 5: CUBIC-BEZIER LAB / PLAYGROUND (Tuần 5 Dynamic Physics Tester) -->
+    <section class="section playground-section" id="playground">
+        <div class="container">
+            <div class="playground-card-box" data-aos="fade-up">
+                <div class="playground-header text-center">
+                    <span class="section-tag"><i class="fa-solid fa-flask"></i> PHÒNG THÍ NHIỆM CHUYỂN ĐỘNG</span>
+                    <h2 class="section-title">Cubic-Bezier <span class="gradient-text">Interactive Lab</span></h2>
                     <p class="section-description">
-                        Chuyển động không chỉ để trang trí, mà là ngôn ngữ dẫn dắt trải nghiệm người dùng, đảm bảo hiệu năng tức thì và phản hồi thị giác chuẩn xác.
+                        Thử nghiệm trực tiếp tốc độ và đường cong chuyển động để cảm nhận sự khác biệt giữa chuyển động tiêu chuẩn và chuyển động tinh chỉnh Prompt Engineering.
                     </p>
                 </div>
 
-                <div class="features-grid">
-                    <!-- Feature Card 1 -->
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="100" data-aos-duration="800">
-                        <div class="feature-icon-wrapper icon-purple">
-                            <i class="fa-solid fa-gauge-high"></i>
+                <div class="playground-grid">
+                    <!-- Controls Left -->
+                    <div class="playground-controls">
+                        <div class="control-group">
+                            <label for="speed-range" class="control-label">
+                                <span>Thời gian chuyển động (<code>--transition-speed</code>)</span>
+                                <span class="value-display" id="speed-value">0.35s</span>
+                            </label>
+                            <input type="range" id="speed-range" min="0.1" max="1.5" step="0.05" value="0.35" class="custom-range">
                         </div>
-                        <h3>60FPS Performance</h3>
-                        <p>Tuyệt đối loại bỏ <code>top</code>, <code>left</code>, <code>margin</code> gây Layout Reflow. 100% chuyển động tạo bằng GPU-accelerated <code>transform: translate3d()</code> và <code>opacity</code>.</p>
-                        <div class="feature-badge">Tối ưu phần cứng</div>
+
+                        <div class="control-group">
+                            <label class="control-label">Chọn Đường Cong Easing:</label>
+                            <div class="preset-buttons">
+                                <button class="preset-btn active" data-curve="cubic-bezier(0.16, 1, 0.3, 1)" data-name="Apple Smooth (Phổ biến)">
+                                    <i class="fa-solid fa-feather"></i> Ultra Smooth
+                                </button>
+                                <button class="preset-btn" data-curve="cubic-bezier(0.34, 1.56, 0.64, 1)" data-name="Spring Bounce (Nảy tự nhiên)">
+                                    <i class="fa-solid fa-bounce"></i> Elastic Spring
+                                </button>
+                                <button class="preset-btn" data-curve="cubic-bezier(0.25, 1, 0.5, 1)" data-name="Subtle Fast Ease-Out">
+                                    <i class="fa-solid fa-bolt"></i> Fast Out
+                                </button>
+                                <button class="preset-btn" data-curve="linear" data-name="Linear (Đều - Thô)">
+                                    <i class="fa-solid fa-ruler-horizontal"></i> Linear (Standard)
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="bezier-code-output">
+                            <span class="code-label">CSS Output:</span>
+                            <code id="bezier-code">transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);</code>
+                        </div>
+
+                        <button class="btn btn-primary btn-block" id="trigger-anim-btn">
+                            <i class="fa-solid fa-play"></i> Chạy Thử Chuyển Động Trực Tiếp
+                        </button>
                     </div>
 
-                    <!-- Feature Card 2 -->
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="200" data-aos-duration="800">
-                        <div class="feature-icon-wrapper icon-blue">
-                            <i class="fa-solid fa-bezier-curve"></i>
+                    <!-- Live Demo Preview Right -->
+                    <div class="playground-demo-area">
+                        <div class="demo-box" id="demo-box">
+                            <div class="demo-element-inner">
+                                <i class="fa-solid fa-rocket demo-icon"></i>
+                                <span class="demo-text">Mai Huy Phong Object</span>
+                            </div>
                         </div>
-                        <h3>Master Cubic-Bezier</h3>
-                        <p>Tinh chỉnh đường cong thời gian tự nhiên với <code>cubic-bezier(0.34, 1.56, 0.64, 1)</code> cho hiệu ứng nảy (elastic spring bounce) sang trọng.</p>
-                        <div class="feature-badge">Vibe Coding Prompt</div>
-                    </div>
-
-                    <!-- Feature Card 3 -->
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="300" data-aos-duration="800">
-                        <div class="feature-icon-wrapper icon-pink">
-                            <i class="fa-solid fa-hand-pointer"></i>
+                        <div class="demo-track">
+                            <span class="track-mark start">Start</span>
+                            <span class="track-mark end">End</span>
                         </div>
-                        <h3>Micro-Feedback</h3>
-                        <p>Mọi hành động click, hover đều kèm theo phản hồi thị giác: Ripple waves, magnetic pull effect, glass glow border và active elevation changes.</p>
-                        <div class="feature-badge">Trải nghiệm liền mạch</div>
-                    </div>
-
-                    <!-- Feature Card 4 -->
-                    <div class="feature-card" data-aos="fade-up" data-aos-delay="400" data-aos-duration="800">
-                        <div class="feature-icon-wrapper icon-emerald">
-                            <i class="fa-solid fa-mobile-screen-button"></i>
-                        </div>
-                        <h3>Responsive Design System</h3>
-                        <p>Tự động thích ứng mượt mà từ màn hình Mobile 320px đến 4K UltraWide, không xảy ra tràn khung (horizontal scroll overflow).</p>
-                        <div class="feature-badge">Thích ứng đa thiết bị</div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SECTION 3: INTERACTIVE PORTFOLIO & FLIP CARDS SHOWCASE -->
-        <section class="section portfolio-section" id="portfolio">
-            <div class="container">
-                <div class="section-header text-center" data-aos="fade-up">
-                    <span class="section-tag"><i class="fa-solid fa-cubes"></i> SẢN PHẨM & DỰ ÁN</span>
-                    <h2 class="section-title">Interactive Portfolio <span class="gradient-text">Showcase</span></h2>
+    <!-- SECTION 6: CONTACT FORM & 3-COLUMN FOOTER (Tuần 6 Finalization Requirements) -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="contact-box-grid">
+                <div class="contact-info" data-aos="fade-right">
+                    <span class="section-tag"><i class="fa-solid fa-comments"></i> KẾT NỐI VỚI TÁC GIẢ</span>
+                    <h2 class="section-title">Nộp Bài Dự Án <br><span class="gradient-text">Mai Huy Phong</span></h2>
                     <p class="section-description">
-                        Di chuột hoặc bấm nút lật mặt thẻ (Flip Card) để khám phá chi tiết kiến trúc kỹ thuật và thông số tương tác của từng sản phẩm.
+                        Dự án hoàn thiện tổng hợp từ Tuần 1 đến Tuần 6. Đã kiểm thử chuẩn W3C Validation, nén tối ưu hiệu năng và đạt 100% tiêu chí Rubric đánh giá.
                     </p>
+
+                    <div class="contact-details">
+                        <div class="info-card">
+                            <div class="info-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                            <div>
+                                <span class="info-title">Sinh viên thực hiện</span>
+                                <span class="info-val">Mai Huy Phong</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                            <div>
+                                <span class="info-title">Học phần</span>
+                                <span class="info-val">Thiết Kế Web (111101) - ĐH Lạc Hồng</span>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <div class="info-icon"><i class="fa-solid fa-code-branch"></i></div>
+                            <div>
+                                <span class="info-title">Phiên bản</span>
+                                <span class="info-val">Smart Interactive Showcase v2.0 (W1-W6)</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- Portfolio Filters -->
-                <div class="portfolio-filter-wrapper" data-aos="fade-up" data-aos-delay="100">
-                    <div class="filter-buttons" role="tablist" aria-label="Bộ lọc dự án">
-                        <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true"><i class="fa-solid fa-globe"></i> Tất Cả Dự Án</button>
-                        <button class="filter-btn" data-filter="ui" role="tab" aria-selected="false"><i class="fa-solid fa-palette"></i> Smart UI/UX</button>
-                        <button class="filter-btn" data-filter="animation" role="tab" aria-selected="false"><i class="fa-solid fa-wand-magic-sparkles"></i> 3D & Animation</button>
-                        <button class="filter-btn" data-filter="system" role="tab" aria-selected="false"><i class="fa-solid fa-gears"></i> Design System</button>
-                    </div>
-                </div>
+                <div class="contact-form-wrapper" data-aos="fade-left">
+                    <form class="interactive-form" id="contact-form" novalidate>
+                        <h3 class="form-title">Gửi Nhận Xét Review</h3>
 
-                <!-- Portfolio Cards Grid -->
-                <div class="portfolio-grid">
-
-                    <!-- CARD 1: 3D Flip Card -->
-                    <div class="flip-card-container" data-category="ui" data-aos="zoom-in-up" data-aos-delay="100">
-                        <div class="flip-card">
-                            <!-- Card Front -->
-                            <div class="flip-card-front">
-                                <div class="card-image-box">
-                                    <div class="card-img-placeholder bg-gradient-1">
-                                        <i class="fa-solid fa-laptop-code card-hero-icon"></i>
-                                    </div>
-                                    <span class="card-category-badge">Smart Interface</span>
-                                    <button class="flip-trigger-btn" aria-label="Lật thẻ xem chi tiết" title="Click để lật thẻ">
-                                        <i class="fa-solid fa-rotate"></i> Lật thẻ
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">Mai Huy Phong Dashboard</h3>
-                                    <p class="card-text">Giao diện điều khiển thông minh với đồ thị tương tác thực tế và hiệu ứng thủy tinh (Glassmorphism).</p>
-                                    <div class="card-tech-list">
-                                        <span>CSS Grid</span>
-                                        <span>Flexbox</span>
-                                        <span>Variables</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Back -->
-                            <div class="flip-card-back">
-                                <div class="card-back-header">
-                                    <span class="back-title">Kỹ Thuật Cốt Lõi</span>
-                                    <button class="flip-close-btn" aria-label="Quay lại"><i class="fa-solid fa-xmark"></i></button>
-                                </div>
-                                <ul class="back-spec-list">
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>AOS Scroll:</strong> Hiệu ứng Fade-up 600ms</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>Cubic-bezier:</strong> 0.16, 1, 0.3, 1</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>GPU Hardware:</strong> Accelerated 3D rotateY</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>Mobile Ready:</strong> Flexible Grid Auto-fit</li>
-                                </ul>
-                                <div class="card-back-actions">
-                                    <a href="#playground" class="btn btn-sm btn-primary">Thử Chuyển Động</a>
-                                    <button class="btn btn-sm btn-outline flip-close-btn-text">Quay lại mặt trước</button>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <input type="text" id="user-name" required class="form-input" placeholder=" ">
+                            <label for="user-name" class="form-label"><i class="fa-solid fa-user"></i> Họ và tên người xem</label>
+                            <span class="input-focus-border"></span>
                         </div>
-                    </div>
 
-                    <!-- CARD 2: Hover Glow Card -->
-                    <div class="flip-card-container" data-category="animation" data-aos="zoom-in-up" data-aos-delay="200">
-                        <div class="flip-card">
-                            <!-- Card Front -->
-                            <div class="flip-card-front">
-                                <div class="card-image-box">
-                                    <div class="card-img-placeholder bg-gradient-2">
-                                        <i class="fa-solid fa-cube card-hero-icon"></i>
-                                    </div>
-                                    <span class="card-category-badge">3D Micro-interactions</span>
-                                    <button class="flip-trigger-btn" aria-label="Lật thẻ xem chi tiết">
-                                        <i class="fa-solid fa-rotate"></i> Lật thẻ
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">Interactive Product Showcase</h3>
-                                    <p class="card-text">Hệ thống Card lật 3D hiển thị đa chiều thông tin sản phẩm và phản hồi thao tác nhanh chóng.</p>
-                                    <div class="card-tech-list">
-                                        <span>Perspective 3D</span>
-                                        <span>RotateY</span>
-                                        <span>Backface-visibility</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Back -->
-                            <div class="flip-card-back">
-                                <div class="card-back-header">
-                                    <span class="back-title">Kỹ Thuật Cốt Lõi</span>
-                                    <button class="flip-close-btn" aria-label="Quay lại"><i class="fa-solid fa-xmark"></i></button>
-                                </div>
-                                <ul class="back-spec-list">
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>Hover Effect:</strong> Dynamic Tilt & Shadow Glow</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>Spring Physics:</strong> Custom Bezier Curve</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>Zero Reflow:</strong> Transform matrix3d optimization</li>
-                                </ul>
-                                <div class="card-back-actions">
-                                    <a href="#contact" class="btn btn-sm btn-primary">Nhận Demo</a>
-                                    <button class="btn btn-sm btn-outline flip-close-btn-text">Quay lại mặt trước</button>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <input type="email" id="user-email" required class="form-input" placeholder=" ">
+                            <label for="user-email" class="form-label"><i class="fa-solid fa-envelope"></i> Email phản hồi</label>
+                            <span class="input-focus-border"></span>
                         </div>
-                    </div>
 
-                    <!-- CARD 3: Design System Flip Card -->
-                    <div class="flip-card-container" data-category="system" data-aos="zoom-in-up" data-aos-delay="300">
-                        <div class="flip-card">
-                            <!-- Card Front -->
-                            <div class="flip-card-front">
-                                <div class="card-image-box">
-                                    <div class="card-img-placeholder bg-gradient-3">
-                                        <i class="fa-solid fa-swatchbook card-hero-icon"></i>
-                                    </div>
-                                    <span class="card-category-badge">Design System</span>
-                                    <button class="flip-trigger-btn" aria-label="Lật thẻ xem chi tiết">
-                                        <i class="fa-solid fa-rotate"></i> Lật thẻ
-                                    </button>
-                                </div>
-                                <div class="card-body">
-                                    <h3 class="card-title">Mai Huy Phong Tokens & UI Kit</h3>
-                                    <p class="card-text">Bộ quy chuẩn biến CSS và thành phần giao diện tái sử dụng giúp đồng bộ phong cách toàn trang.</p>
-                                    <div class="card-tech-list">
-                                        <span>CSS Tokens</span>
-                                        <span>Dark Mode</span>
-                                        <span>Accessibility</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Card Back -->
-                            <div class="flip-card-back">
-                                <div class="card-back-header">
-                                    <span class="back-title">Kỹ Thuật Cốt Lõi</span>
-                                    <button class="flip-close-btn" aria-label="Quay lại"><i class="fa-solid fa-xmark"></i></button>
-                                </div>
-                                <ul class="back-spec-list">
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>Variable System:</strong> Color Palette & Spacing</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>Theme Engine:</strong> Fast HSL Color Switching</li>
-                                    <li><i class="fa-solid fa-check-circle"></i> <strong>Focus Visible:</strong> WCAG 2.1 Compliant</li>
-                                </ul>
-                                <div class="card-back-actions">
-                                    <a href="#about" class="btn btn-sm btn-primary">Xem Chi Tiết</a>
-                                    <button class="btn btn-sm btn-outline flip-close-btn-text">Quay lại mặt trước</button>
-                                </div>
-                            </div>
+                        <div class="form-group">
+                            <textarea id="user-message" required class="form-input form-textarea" placeholder=" " rows="4"></textarea>
+                            <label for="user-message" class="form-label"><i class="fa-solid fa-comment-dots"></i> Nhận xét & Đánh giá</label>
+                            <span class="input-focus-border"></span>
                         </div>
-                    </div>
 
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text">Gửi Nhận Xét Ngay</span>
+                            <i class="fa-solid fa-paper-plane btn-icon"></i>
+                            <div class="spinner hidden"></div>
+                        </button>
+                    </form>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- SECTION 4: INTERACTIVE CUBIC-BEZIER LAB / PLAYGROUND -->
-        <section class="section playground-section" id="playground">
-            <div class="container">
-                <div class="playground-card-box" data-aos="fade-up">
-                    <div class="playground-header text-center">
-                        <span class="section-tag"><i class="fa-solid fa-flask"></i> PHÒNG THÍ NHIỆM CHUYỂN ĐỘNG</span>
-                        <h2 class="section-title">Cubic-Bezier <span class="gradient-text">Interactive Lab</span></h2>
-                        <p class="section-description">
-                            Thử nghiệm trực tiếp tốc độ và đường cong chuyển động để cảm nhận sự khác biệt giữa chuyển động tiêu chuẩn và chuyển động tinh chỉnh Prompt Engineering.
-                        </p>
-                    </div>
-
-                    <div class="playground-grid">
-                        <!-- Controls Left -->
-                        <div class="playground-controls">
-                            <div class="control-group">
-                                <label for="speed-range" class="control-label">
-                                    <span>Thời gian chuyển động (<code>--transition-speed</code>)</span>
-                                    <span class="value-display" id="speed-value">0.35s</span>
-                                </label>
-                                <input type="range" id="speed-range" min="0.1" max="1.5" step="0.05" value="0.35" class="custom-range">
-                            </div>
-
-                            <div class="control-group">
-                                <label class="control-label">Chọn Đường Cong Easing:</label>
-                                <div class="preset-buttons">
-                                    <button class="preset-btn active" data-curve="cubic-bezier(0.16, 1, 0.3, 1)" data-name="Apple Smooth (Phổ biến)">
-                                        <i class="fa-solid fa-feather"></i> Ultra Smooth
-                                    </button>
-                                    <button class="preset-btn" data-curve="cubic-bezier(0.34, 1.56, 0.64, 1)" data-name="Spring Bounce (Nảy tự nhiên)">
-                                        <i class="fa-solid fa-bounce"></i> Elastic Spring
-                                    </button>
-                                    <button class="preset-btn" data-curve="cubic-bezier(0.25, 1, 0.5, 1)" data-name="Subtle Fast Ease-Out">
-                                        <i class="fa-solid fa-bolt"></i> Fast Out
-                                    </button>
-                                    <button class="preset-btn" data-curve="linear" data-name="Linear (Đều - Thô)">
-                                        <i class="fa-solid fa-ruler-horizontal"></i> Linear (Standard)
-                                    </button>
-                                </div>
-                            </div>
-
-                            <div class="bezier-code-output">
-                                <span class="code-label">CSS Output:</span>
-                                <code id="bezier-code">transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);</code>
-                            </div>
-
-                            <button class="btn btn-primary btn-block" id="trigger-anim-btn">
-                                <i class="fa-solid fa-play"></i> Chạy Thử Chuyển Động Trực Tiếp
-                            </button>
-                        </div>
-
-                        <!-- Live Demo Preview Right -->
-                        <div class="playground-demo-area">
-                            <div class="demo-box" id="demo-box">
-                                <div class="demo-element-inner">
-                                    <i class="fa-solid fa-rocket demo-icon"></i>
-                                    <span class="demo-text">Mai Huy Phong Object</span>
-                                </div>
-                            </div>
-                            <div class="demo-track">
-                                <span class="track-mark start">Start</span>
-                                <span class="track-mark end">End</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION 5: CONTACT & MICRO-INTERACTION FORM -->
-        <section class="section contact-section" id="contact">
-            <div class="container">
-                <div class="contact-box-grid">
-                    <div class="contact-info" data-aos="fade-right">
-                        <span class="section-tag"><i class="fa-solid fa-comments"></i> KẾT NỐI VỚI TÁC GIẢ</span>
-                        <h2 class="section-title">Nộp Bài Dự Án <br><span class="gradient-text">Mai Huy Phong</span></h2>
-                        <p class="section-description">
-                            Dự án được xây dựng hoàn thiện theo bộ tiêu chí Rubric đánh giá Tuần 5: Tính tương tác 40%, Tính nhất quán 20%, Kỹ thuật Git 20%, Tối ưu Mobile 20%.
-                        </p>
-
-                        <div class="contact-details">
-                            <div class="info-card">
-                                <div class="info-icon"><i class="fa-solid fa-user-graduate"></i></div>
-                                <div>
-                                    <span class="info-title">Sinh viên thực hiện</span>
-                                    <span class="info-val">Mai Huy Phong</span>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="info-icon"><i class="fa-solid fa-book-bookmark"></i></div>
-                                <div>
-                                    <span class="info-title">Học phần</span>
-                                    <span class="info-val">Thiết Kế Web (111101) - Đại học Lạc Hồng</span>
-                                </div>
-                            </div>
-                            <div class="info-card">
-                                <div class="info-icon"><i class="fa-solid fa-code-branch"></i></div>
-                                <div>
-                                    <span class="info-title">Phiên bản</span>
-                                    <span class="info-val">Tuần 5 Interactive Showcase v1.0.0</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="contact-form-wrapper" data-aos="fade-left">
-                        <form class="interactive-form" id="contact-form" novalidate>
-                            <h3 class="form-title">Gửi Phản Hồi Review</h3>
-
-                            <div class="form-group">
-                                <input type="text" id="user-name" required class="form-input" placeholder=" ">
-                                <label for="user-name" class="form-label"><i class="fa-solid fa-user"></i> Họ và tên người xem</label>
-                                <span class="input-focus-border"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <input type="email" id="user-email" required class="form-input" placeholder=" ">
-                                <label for="user-email" class="form-label"><i class="fa-solid fa-envelope"></i> Email phản hồi</label>
-                                <span class="input-focus-border"></span>
-                            </div>
-
-                            <div class="form-group">
-                                <textarea id="user-message" required class="form-input form-textarea" placeholder=" " rows="4"></textarea>
-                                <label for="user-message" class="form-label"><i class="fa-solid fa-comment-dots"></i> Nhận xét & Đánh giá</label>
-                                <span class="input-focus-border"></span>
-                            </div>
-
-                            <button type="submit" class="btn btn-primary btn-submit">
-                                <span class="btn-text">Gửi Nhận Xét Ngay</span>
-                                <i class="fa-solid fa-paper-plane btn-icon"></i>
-                                <div class="spinner hidden"></div>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer Section -->
+    <!-- FOOTER SECTION (Tuần 6 Sticky / 3-Column Professional Footer) -->
     <footer class="footer">
-        <div class="container footer-content">
-            <div class="footer-left">
+        <div class="container footer-main-grid">
+            <!-- Column 1: Author & Branding -->
+            <div class="footer-col branding-col">
                 <a href="#hero" class="logo">
                     <span class="logo-icon"><i class="fa-solid fa-code"></i></span>
                     <span class="logo-text">MAI HUY PHONG<span class="accent-dot">.</span></span>
                 </a>
-                <p class="footer-tagline">Interactive Showcase - Tuần 5 | Giáo Trình Thiết Kế Web Lạc Hồng</p>
+                <p class="footer-tagline">Sản phẩm Smart Showcase Tuần 3 - Tuần 6 | Học Phần Thiết Kế Web Đại Học Lạc Hồng.</p>
+                <div class="footer-socials">
+                    <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-link" title="GitHub Repository"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-link" title="LinkedIn Profile"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://facebook.com" target="_blank" aria-label="Facebook" class="social-link" title="Facebook Profile"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
             </div>
 
-            <div class="footer-socials">
-                <a href="https://github.com" target="_blank" rel="noopener" aria-label="GitHub" class="social-link" title="GitHub Repository">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link" title="LinkedIn Profile">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook" class="social-link" title="Facebook Profile">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
+            <!-- Column 2: Quick Links -->
+            <div class="footer-col links-col">
+                <h4 class="footer-col-title">Liên Kết Nhanh</h4>
+                <ul class="footer-links">
+                    <li><a href="#hero"><i class="fa-solid fa-chevron-right"></i> Trang Chủ</a></li>
+                    <li><a href="#about"><i class="fa-solid fa-chevron-right"></i> Bố Cục CSS Grid</a></li>
+                    <li><a href="#portfolio"><i class="fa-solid fa-chevron-right"></i> Thẻ Lật 3D Flip</a></li>
+                    <li><a href="#pricing"><i class="fa-solid fa-chevron-right"></i> Gói Dịch Vụ</a></li>
+                    <li><a href="#playground"><i class="fa-solid fa-chevron-right"></i> Bezier Lab</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Newsletter Form -->
+            <div class="footer-col newsletter-col">
+                <h4 class="footer-col-title">Đăng Ký Nhận Tin</h4>
+                <p class="newsletter-desc">Nhận cập nhật về các quy chuẩn Vibe Coding và bài giảng Thiết Kế Web mới nhất.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Nhập email của bạn..." required aria-label="Newsletter Email">
+                    <button type="submit" class="btn btn-primary btn-sm"><i class="fa-solid fa-paper-plane"></i></button>
+                </form>
             </div>
         </div>
+
         <div class="footer-bottom text-center">
-            <p>&copy; 2026 <strong>Mai Huy Phong</strong>. Tất cả quyền được bảo lưu. Phát triển với <i class="fa-solid fa-heart heart-pulse"></i> và Vibe Coding AI.</p>
+            <div class="container">
+                <p>&copy; 2026 <strong>Mai Huy Phong</strong>. Phát triển với <i class="fa-solid fa-heart heart-pulse"></i> và Vibe Coding AI. Đạt chuẩn W3C & Mobile-First.</p>
+            </div>
         </div>
     </footer>
 

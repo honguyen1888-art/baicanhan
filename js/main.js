@@ -1,22 +1,22 @@
 /**
- * MAI HUY PHONG - INTERACTIVE SHOWCASE (TUẦN 5)
+ * MAI HUY PHONG - SMART INTERACTIVE SHOWCASE (TUẦN 3 - TUẦN 6)
  * JAVASCRIPT CORE LOGIC & MICRO-INTERACTIONS
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize AOS (Animate On Scroll) Library
+    // 1. Initialize AOS (Animate On Scroll) Library with Fallback
     initAOS();
 
-    // 2. Dark/Light Theme Switching
+    // 2. Dark/Light Theme Switcher
     initThemeToggle();
 
-    // 3. Header Scroll Effect & Mobile Navigation
+    // 3. Header Scroll Effect, Search & Mobile Navigation
     initNavigation();
 
     // 4. Hero Section 3D Tilt Card Interaction
     initHeroTiltCard();
 
-    // 5. Portfolio 3D Flip Cards & Filtering System
+    // 5. Portfolio 3D Flip Cards & Category Filtering
     initPortfolioSystem();
 
     // 6. Cubic-Bezier Interactive Playground Lab
@@ -28,10 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // 8. Hero Counter Animation
     initCounterAnimation();
 
-    // 9. Interactive Form Submission Feedback
+    // 9. Interactive Contact Form Submission Feedback
     initContactForm();
 
-    // 10. Back to Top Button
+    // 10. Newsletter Subscription Handling
+    initNewsletterForm();
+
+    // 11. Back to Top Button
     initBackToTop();
 });
 
@@ -48,7 +51,6 @@ function initAOS() {
             disable: false
         });
     } else {
-        // Fallback using IntersectionObserver if AOS CDN is blocked/offline
         const aosElements = document.querySelectorAll('[data-aos]');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -76,7 +78,6 @@ function initThemeToggle() {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlElement = document.documentElement;
 
-    // Check saved local storage or default to dark
     const savedTheme = localStorage.getItem('mhp_theme') || 'dark';
     htmlElement.setAttribute('data-theme', savedTheme);
 
@@ -84,11 +85,10 @@ function initThemeToggle() {
         themeToggleBtn.addEventListener('click', () => {
             const currentTheme = htmlElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
+
             htmlElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('mhp_theme', newTheme);
 
-            // Re-trigger AOS refresh if present
             if (typeof AOS !== 'undefined') {
                 AOS.refresh();
             }
@@ -97,7 +97,7 @@ function initThemeToggle() {
 }
 
 /* --------------------------------------------------------------------------
-   3. NAVIGATION & SCROLL HIGHLIGHTING
+   3. NAVIGATION, SEARCH & SCROLL HIGHLIGHTING
    -------------------------------------------------------------------------- */
 function initNavigation() {
     const header = document.getElementById('header');
@@ -105,7 +105,6 @@ function initNavigation() {
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Header scroll background change
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
@@ -113,7 +112,6 @@ function initNavigation() {
             header.classList.remove('scrolled');
         }
 
-        // Active link highlighting based on section scroll
         const sections = document.querySelectorAll('section[id]');
         const scrollY = window.pageYOffset;
 
@@ -133,14 +131,12 @@ function initNavigation() {
         });
     });
 
-    // Mobile menu toggle
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             mobileToggle.classList.toggle('open');
         });
 
-        // Close menu on link click
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -191,7 +187,6 @@ function initPortfolioSystem() {
     const flipContainers = document.querySelectorAll('.flip-card-container');
     const filterBtns = document.querySelectorAll('.filter-btn');
 
-    // Handle flip button clicks for both front trigger and back close
     flipContainers.forEach(container => {
         const card = container.querySelector('.flip-card');
         const triggerBtn = container.querySelector('.flip-trigger-btn');
@@ -220,7 +215,6 @@ function initPortfolioSystem() {
         }
     });
 
-    // Category Filter Buttons
     filterBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             filterBtns.forEach(b => {
@@ -234,7 +228,7 @@ function initPortfolioSystem() {
 
             flipContainers.forEach(container => {
                 const category = container.getAttribute('data-category');
-                
+
                 if (filterValue === 'all' || category === filterValue) {
                     container.classList.remove('hidden-filter');
                     container.style.animation = 'heroSlideUp 0.5s var(--cubic-smooth) forwards';
@@ -267,14 +261,12 @@ function initCubicBezierLab() {
         bezierCodeDisplay.textContent = `transition: transform ${currentSpeed} ${currentCurve};`;
     }
 
-    // Speed Slider
     speedRange.addEventListener('input', (e) => {
         currentSpeed = `${e.target.value}s`;
         speedValueDisplay.textContent = currentSpeed;
         updateDemoBoxStyle();
     });
 
-    // Preset Buttons
     presetBtns.forEach(btn => {
         btn.addEventListener('click', () => {
             presetBtns.forEach(b => b.classList.remove('active'));
@@ -285,7 +277,6 @@ function initCubicBezierLab() {
         });
     });
 
-    // Trigger Animation
     if (triggerAnimBtn) {
         triggerAnimBtn.addEventListener('click', () => {
             demoBox.classList.toggle('anim-active');
@@ -331,7 +322,7 @@ function initCounterAnimation() {
 
         counters.forEach(counter => {
             const target = +counter.getAttribute('data-target');
-            const duration = 1500; // ms
+            const duration = 1500;
             const stepTime = 20;
             const steps = duration / stepTime;
             const increment = target / steps;
@@ -351,7 +342,6 @@ function initCounterAnimation() {
         animated = true;
     }
 
-    // Trigger when hero section is visible
     const heroSection = document.getElementById('hero');
     if (heroSection) {
         const observer = new IntersectionObserver((entries) => {
@@ -365,7 +355,7 @@ function initCounterAnimation() {
 }
 
 /* --------------------------------------------------------------------------
-   9. INTERACTIVE CONTACT FORM SUBMISSION
+   9. CONTACT FORM SUBMISSION
    -------------------------------------------------------------------------- */
 function initContactForm() {
     const contactForm = document.getElementById('contact-form');
@@ -379,21 +369,18 @@ function initContactForm() {
         const spinner = contactForm.querySelector('.spinner');
         const submitBtn = contactForm.querySelector('.btn-submit');
 
-        // Show Loading State
         btnText.textContent = 'Đang xử lý...';
         btnIcon.style.display = 'none';
         spinner.classList.remove('hidden');
         submitBtn.disabled = true;
 
         setTimeout(() => {
-            // Show Success Notification
             spinner.classList.add('hidden');
             btnIcon.className = 'fa-solid fa-check btn-icon';
             btnIcon.style.display = 'inline-block';
             btnText.textContent = 'Gửi Phản Hồi Thành Công!';
             submitBtn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
 
-            // Reset Form after 3s
             setTimeout(() => {
                 contactForm.reset();
                 btnText.textContent = 'Gửi Nhận Xét Ngay';
@@ -406,7 +393,30 @@ function initContactForm() {
 }
 
 /* --------------------------------------------------------------------------
-   10. BACK TO TOP BUTTON
+   10. NEWSLETTER FORM SUBMISSION
+   -------------------------------------------------------------------------- */
+function initNewsletterForm() {
+    const newsletterForm = document.getElementById('newsletter-form');
+    if (!newsletterForm) return;
+
+    newsletterForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const input = newsletterForm.querySelector('input');
+        const btn = newsletterForm.querySelector('button');
+
+        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+        input.value = '';
+        input.placeholder = 'Đã đăng ký thành công!';
+
+        setTimeout(() => {
+            btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i>';
+            input.placeholder = 'Nhập email của bạn...';
+        }, 3000);
+    });
+}
+
+/* --------------------------------------------------------------------------
+   11. BACK TO TOP BUTTON
    -------------------------------------------------------------------------- */
 function initBackToTop() {
     const backToTopBtn = document.getElementById('back-to-top');

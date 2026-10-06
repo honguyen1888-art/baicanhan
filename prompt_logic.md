@@ -1,124 +1,64 @@
-# BÁO CÁO PROMPT LOGIC & TƯ DUY UX (TUẦN 5)
-**Dự án:** Interactive Showcase & Smart Interface  
-**Tác giả / Sinh viên:** Mai Huy Phong  
-**Học phần:** Thiết Kế Web (111101) - Đại Học Lạc Hồng  
-**Ngày hoàn thành:** 06/10/2026  
+# BÁO CÁO PROMPT LOGIC & TƯ DUY UX TỔNG HỢP (TUẦN 3 - TUẦN 6)
+**Dự án:** Smart Interactive Showcase & Design System  
+**Sinh viên thực hiện:** Mai Huy Phong  
+**Mã học phần:** Thiết Kế Web (111101)  
+**Trường:** Đại Học Lạc Hồng (LHU)  
+**Ngày cập nhật:** 06/10/2026  
 
 ---
 
-## 🎯 1. TỔNG QUAN TƯ DUY UX VÀ THIẾT KẾ CHUYỂN ĐỘNG (UX MOTION MINDSET)
+## 🎯 1. TỔNG QUAN TIẾN TRÌNH DỰ ÁN (TUẦN 3 -> TUẦN 6)
 
-Trong thiết kế giao diện hiện đại (Modern Web Interfaces), chuyển động (Animation / Motion) không đơn thuần phục vụ mục đích trang trí thị giác mà là **ngôn ngữ tương tác trực quan (Visual Communication Language)** để dẫn dắt hành vi và nâng cao trải nghiệm người dùng (User Experience).
-
-Tác giả **Mai Huy Phong** đã áp dụng các nguyên tắc cốt lõi sau xuyên suốt dự án:
-
-1. **Hierarchy & Directing Focus (Phân cấp & Định hướng chú ý):**
-   - Chuyển động Intro đưa tầm mắt người dùng từ trên xuống: **Header slide down** -> **Badge Pop-in** -> **Headline Gradient** -> **Hero 3D Visual Card**.
-2. **Immediate Micro-Feedback (Phản hồi tức thì):**
-   - Mọi thao tác click và hover trên nút bấm Call-To-Action (CTA) hay thẻ Card đều có phản hồi thị giác trong vòng **0.1s - 0.35s** (dưới ngưỡng nhận biết độ trễ của não người 100ms).
-3. **Spatial Continuity & Cognitive Ease (Tính liên tục không gian):**
-   - Thẻ Card sản phẩm sử dụng kỹ thuật lật 3D (**3D Flip Card**) giúp người dùng khám phá mặt sau thông tin chi tiết mà không làm mất ngữ cảnh (Context Switching) hoặc phải chuyển sang trang mới.
-4. **Hardware Acceleration & 60FPS Performance (Hiệu năng tuyệt đối):**
-   - Chỉ sử dụng `transform` (scale, translate3d, rotateY) và `opacity` để GPU đảm nhiệm render layer riêng biệt, loại bỏ hoàn toàn hiện tượng **Layout Reflow / Repaint** gây giật lag trên di động.
+Dự án được nâng cấp toàn diện qua 4 tuần học cốt lõi:
+1. **Tuần 3 (CSS Layout System - Flexbox & Grid):** Xây dựng bố cục 2 chiều bằng CSS Grid cho khung tổng thể (Sidebar 25% + Main Content 75%) và Flexbox 1 chiều cho danh sách Kỹ năng (`flex-wrap: wrap`) & Bảng giá Dịch vụ (`align-items: stretch`).
+2. **Tuần 4 (Design System & Mobile-First Responsive):** Thiết lập bộ biến CSS Tokens (`:root`) cho màu sắc, khoảng cách (`--spacing-*`) và thang chữ (`rem`), áp dụng quy trình Mobile-First với Media Queries tại các điểm gãy chuẩn (`< 768px`, `768px - 1024px`, `> 1024px`).
+3. **Tuần 5 (Hiệu ứng Chuyển động & Micro-interactions):** Tạo chuyển động GPU 60FPS mượt mà (Intro animations, 3D Flip Cards, AOS Scroll Revelation, Cubic-Bezier Lab, Ripple waves).
+4. **Tuần 6 (Hoàn thiện Giao diện & Refactoring):** Tinh gọn mã nguồn CSS, loại bỏ thuộc tính dư thừa, kiểm thử đạt 0 lỗi W3C Validation, bổ sung 3-column Sticky Footer chuyên nghiệp.
 
 ---
 
-## 📋 2. BẢNG GIẢI THÍCH TƯ DUY UX THEO TỪNG SECTION (SECTION UX RATIONALE)
+## 📋 2. BẢNG GIẢI THÍCH TƯ DUY UX & KỸ THUẬT THEO TỪNG SECTION
 
-| Section | Hiệu ứng Animation | Tư duy UX & Mục đích Trải nghiệm | Kỹ thuật CSS / JS sử dụng |
-| :--- | :--- | :--- | :--- |
-| **1. Header & Navigation** | Slide-down, Glassmorphism, Theme Switcher Smooth Rotate | Giúp người dùng xác định ngay thương hiệu **Mai Huy Phong** và hệ thống điều hướng chính khi vừa truy cập trang. Menu thu gọn mượt trên Mobile. | `@keyframes headerSlideDown`, `backdrop-filter`, `transform: rotate()`, CSS Variables |
-| **2. Hero Section** | Staggered Fade-In / Slide-Up, Interactive 3D Parallax Tilt, Counter-Up | Tạo ấn tượng ban đầu (First Impression) mạnh mẽ, thể hiện thông số 60FPS & tính hiện đại của Smart Interface. Thẻ 3D nghiêng theo con trỏ chuột tạo cảm giác "chạm" được vào giao diện. | `requestAnimationFrame`, `perspective`, `transform: rotateX() rotateY()`, IntersectionObserver |
-| **3. About (UX Mindset)** | AOS Scroll Revelation (`data-aos="fade-up"`), Hover Elevation | Dẫn dắt người dùng đọc các giá trị cốt lõi khi cuộn trang. Khi cuộn tới đâu, nội dung tự xuất hiện tới đó mà không làm tràn ngợp thông tin (Information Overload). | `unpkg.com/aos`, `transform: translateY(-8px)`, `box-shadow` |
-| **4. Interactive Portfolio** | 3D Card Flip (RotateY 180deg), Category Filter Smooth Slide | Thẻ lật 2 mặt tối ưu diện tích màn hình. Mặt trước thu hút bằng icon & tiêu đề, mặt sau cung cấp thông số kỹ thuật chi tiết. Bộ lọc giúp tìm kiếm thông tin theo nhu cầu mà không cần load lại trang. | `transform-style: preserve-3d`, `backface-visibility: hidden`, `cubic-bezier(0.34, 1.56, 0.64, 1)` |
-| **5. Cubic-Bezier Lab** | Live Physics Simulation Slider, Dynamic Easing Switcher | Cho phép giảng viên / người xem tương tác trực tiếp, tùy chỉnh tốc độ `--transition-speed` và đường cong easing để tự kiểm chứng độ mượt của Vibe Coding. | Dynamic CSS Variable Injections via JS, `transform: translateX() scale()` |
-| **6. Contact & Footer** | Floating Label Inputs, Ripple Wave Click, Pulse Heart Animation | Tăng tính chuyên nghiệp khi người dùng nhập phản hồi. Nhãn floating di chuyển mượt mà lên trên input giúp tiết kiệm không gian và tránh bị mất tên trường. | `:focus ~ .form-label`, `@keyframes rippleWave`, `@keyframes spin` |
+| Section / Thành phần | Kỹ thuật CSS / JS áp dụng | Lý do & Tư duy UX (User Experience) |
+| :--- | :--- | :--- |
+| **Header & Navigation** | Flexbox `justify-content: space-between`, Search Bar, Theme Switcher, Hamburger Mobile Toggle | Giúp tìm kiếm & điều hướng tức thì. Trên Mobile, menu thu gọn mượt bằng CSS transform. |
+| **Hero 3D Showcase** | Staggered Keyframe Animations, `requestAnimationFrame` Parallax 3D Tilt | Tạo ấn tượng ban đầu (First Impression) mạnh mẽ, cho phép tương tác trực tiếp góc nhìn 3D theo con trỏ chuột. |
+| **Layout Grid (Sidebar + Main)** | `display: grid; grid-template-columns: 280px 1fr;` (Desktop) -> 1 cột (Mobile) | Chia khu vực thông tin cá nhân/kỹ năng tác giả bên trái và nội dung trải nghiệm chính bên phải. |
+| **Skills Widget** | `display: flex; flex-wrap: wrap; gap: 0.5rem;` | Các thẻ kỹ năng tự động sắp xếp và xuống dòng linh hoạt khi thay đổi kích thước màn hình. |
+| **3D Flip Portfolio** | `perspective: 1200px`, `transform-style: preserve-3d`, `rotateY(180deg)` | Khám phá thông số kỹ thuật ở mặt sau thẻ mà không cần chuyển trang, tối ưu không gian hiển thị. |
+| **Pricing Cards (Dịch vụ)** | Flexbox Equal Height (`align-items: stretch`), `margin-top: auto` cho nút CTA | Đảm bảo các bảng giá luôn bằng chiều cao nhau, nút đăng ký luôn nằm sát đáy bất kể độ dài mô tả. |
+| **Cubic-Bezier Lab** | Dynamic CSS Variable Injections, Live Easing Physics Simulation | Cho phép giảng viên/người xem thử nghiệm trực tiếp tốc độ và đường cong chuyển động. |
+| **Form Liên hệ & Newsletter** | Floating Labels, Button Ripple Wave Effect, Dynamic Status Spinner | Tăng phản hồi thị giác khi nhập liệu và gửi phản hồi, mang lại cảm giác phản hồi tức thì. |
+| **Sticky 3-Column Footer** | 3-Column Grid (`1.2fr 0.8fr 1fr`), Flexbox Social Links, Newsletter Input | Đảm bảo chân trang luôn đầy đủ thông tin bản quyền tác giả **Mai Huy Phong** và các liên kết điều hướng. |
 
 ---
 
 ## 🚀 3. DANH SÁCH PROMPT BẬC THẦY (PROMPT ENGINEERING LOGIC)
 
-Dưới đây là các câu Prompt được tối ưu theo kỹ thuật **Vibe Coding** nhằm tinh chỉnh các thông số `cubic-bezier` và xử lý triệt để lỗi hiệu ứng giật lag:
-
-### 🤖 Prompt 1: Tinh chỉnh đường cong Cubic-Bezier tự nhiên (Master Elastic & Apple Easing)
+### 🤖 Prompt 1 (Tuần 3 - Flexbox & Grid Battle Layout):
 > **Prompt:**  
-> *"Hãy viết cho tôi 2 biến CSS timing-function chuyên nghiệp:  
-> 1. `--cubic-smooth`: Mô phỏng đường cong decelerate của Apple (nút xuất hiện mượt, dừng êm không giật).  
-> 2. `--cubic-bounce`: Mô phỏng hiệu ứng spring bounce (nảy nhẹ đàn hồi tự nhiên như iOS).  
-> Vui lòng cung cấp tọa độ toán học `cubic-bezier(x1, y1, x2, y2)` chính xác, giải thích ý nghĩa các trục toán học và cấu hình thời gian chuẩn `--transition-speed: 0.35s` để đạt 60fps."*
+> *"Hãy đóng vai chuyên gia UI/UX. Viết mã CSS dàn trang bằng CSS Grid cho khung tổng thể: Sidebar bên trái rộng 280px cố định sticky khi cuộn, Main Content chiếm phần còn lại. Bên trong Sidebar, sử dụng Flexbox với `flex-wrap: wrap` và `gap: 0.5rem` để các thẻ Kỹ năng (HTML, CSS, JS...) tự động xếp hàng và xuống dòng khi màn hình nhỏ. Tuyệt đối không dùng float hay position absolute cho bố cục chính."*
 
-- **Kết quả thu được:**
-  ```css
-  :root {
-    --transition-speed: 0.35s;
-    --cubic-smooth: cubic-bezier(0.16, 1, 0.3, 1);       /* Ultra Smooth Out */
-    --cubic-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);    /* Elastic Spring */
-  }
-  ```
-- **Giải thích:** `cubic-bezier(0.34, 1.56, 0.64, 1)` có giá trị `y1 = 1.56` (> 1.0) khiến cho phần tử vọt qua vị trí đích 56% rồi nảy lùi lại, tạo cảm giác đàn hồi chân thực.
-
----
-
-### 🤖 Prompt 2: Refactor & Tối ưu hiệu năng loại bỏ GPU Reflow / Lag
+### 🤖 Prompt 2 (Tuần 4 - Design System & Mobile-First Tokens):
 > **Prompt:**  
-> *"Đoạn CSS chuyển động hiện tại đang dùng `top: 20px` và `left: 50px` gây sụt giảm FPS trên trình duyệt di động do liên tục kích hoạt Layout Reflow & Repaint. Hãy refactor toàn bộ CSS sang 100% thuộc tính tăng tốc phần cứng GPU (`transform: translate3d()`, `scale()`, `rotate()`, `opacity`). Đảm bảo thêm `will-change: transform` ở các phần tử tương tác cao và thiết lập `backface-visibility: hidden` để khắc phục lỗi rung hình (flickering) khi lật thẻ 3D."*
+> *"Hãy xây dựng hệ thống CSS Variables tại `:root` bao gồm: Palette màu sắc (Dark/Light mode tokens), Thang kích thước font chữ chuẩn `rem` (`--fs-xs` đến `--fs-3xl`), và Thang khoảng cách spacing (`--spacing-xs` đến `--spacing-xl`). Sau đó viết Media Queries theo tư duy Mobile-First với các điểm ngắt 768px và 1024px để tự động chuyển từ 1 cột trên điện thoại sang 2 cột trên Tablet và Desktop."*
 
-- **Kết quả giải quyết lỗi:**
-  - **Trước refactor (Lỗi giật lag):**
-    ```css
-    /* KHÔNG DÙNG - CŨ */
-    .card:hover {
-        top: -10px; /* Kích hoạt Reflow toàn trang */
-        left: 5px;
-    }
-    ```
-  - **Sau refactor (Chuẩn 60FPS GPU):**
-    ```css
-    /* TỐI ƯU GPU - MỚI */
-    .feature-card {
-        will-change: transform;
-        transition: transform var(--transition-speed) var(--cubic-bounce);
-    }
-    .feature-card:hover {
-        transform: translateY(-8px); /* 100% Render trên GPU Composite Layer */
-    }
-    ```
-
----
-
-### 🤖 Prompt 3: Lập trình Thẻ Lật 3D (Interactive 3D Flip Card Architecture)
+### 🤖 Prompt 3 (Tuần 5 - Master Cubic-Bezier & 3D Flip Card):
 > **Prompt:**  
-> *"Viết cấu trúc HTML/CSS cho hệ thống Flip Card 3D gồm 2 mặt (Front & Back). Yêu cầu:  
-> - Sử dụng CSS `perspective: 1200px` ở container ngoài để tạo chiều sâu 3D.  
-> - Thẻ `.flip-card` sử dụng `transform-style: preserve-3d` và `transition: transform 0.7s cubic-bezier(0.34, 1.56, 0.64, 1)`.  
-> - 2 mặt `.flip-card-front` và `.flip-card-back` sử dụng `backface-visibility: hidden` để ẩn mặt sau khi xoay.  
-> - Hỗ trợ cả 2 phương thức lật: Hover trên Desktop và Click nút bấm 'Lật thẻ' trên Mobile."*
+> *"Viết hiệu ứng lật thẻ 3D (Flip Card) bằng CSS3. Container ngoài có `perspective: 1200px`, thẻ con có `transform-style: preserve-3d` và transition xoay `rotateY(180deg)` với đường cong `cubic-bezier(0.34, 1.56, 0.64, 1)` để tạo độ nảy đàn hồi tự nhiên. Đảm bảo sử dụng `will-change: transform` và `backface-visibility: hidden` để đạt 60FPS không giật lag."*
 
-- **Kết quả thu được:** Hệ thống card lật 3D phẳng mượt, hoạt động xuất sắc trên cả chuột và màn hình cảm ứng di động.
+### 🤖 Prompt 4 (Tuần 6 - CSS Refactoring & Performance Speed-Up):
+> **Prompt:**  
+> *"Đây là mã nguồn CSS của dự án. Hãy rà soát và tối ưu hóa (Refactor): loại bỏ các thuộc tính dư thừa như `margin-left` cố định, gộp các class có thuộc tính lặp lại, thay toàn bộ mã màu HEX bằng hàm `var()`, và đảm bảo mã đạt 0 lỗi theo tiêu chuẩn W3C Validation."*
 
 ---
 
-## 🛠️ 4. QUY TRÌNH REVIEW MÃ NGUỒN & GIT WORKFLOW
+## ⚖️ 4. BẢNG CHECKLIST TỔNG HỢP TIÊU CHÍ HOÀN THÀNH
 
-Để đáp ứng tiêu chí **Kỹ thuật Git (20%)** trong Rubric chấm điểm:
-
-1. **Hệ thống nhánh Git (Branching Strategy):**
-   - `main`: Nhánh sản phẩm hoàn thiện sẵn sàng nộp bài.
-   - `feature/intro-animation`: Xây dựng Header, Hero Section & Intro keyframes.
-   - `feature/portfolio-flip-cards`: Xây dựng hệ thống Flip Card 3D & Filter.
-   - `feature/cubic-bezier-lab`: Lập trình phòng thí nghiệm chuyển động.
-2. **Quy trình Pull Request (PR) & Peer Review:**
-   - Mỗi tính năng animation đều được tạo PR, kiểm tra xung đột CSS Variables (`--transition-speed`) trước khi Merge vào `main`.
-   - Lịch sử commit tuân thủ chuẩn **Conventional Commits**: `feat:`, `fix:`, `style:`, `docs:`.
+- [x] **TUẦN 3:** Dùng CSS Grid cho Layout chính (Main + Sidebar), Flexbox cho Skills & Pricing Cards, không còn dùng float.
+- [x] **TUẦN 4:** 100% mã màu & spacing sử dụng biến `var()`, không có thanh cuộn ngang (Horizontal scroll), chuẩn Responsive Mobile-First.
+- [x] **TUẦN 5:** Intro Animations, 3D Flip Cards, AOS Scroll Revelation, Bezier Lab tương tác trực tiếp, 100% GPU Accelerated.
+- [x] **TUẦN 6:** Đạt 0 lỗi W3C Validation, mã nguồn refactor sạch vẽ, 3-column Sticky Footer, đầy đủ file `README.md` & `prompt_logic.md`.
 
 ---
-
-## 🏆 5. ĐÁNH GIÁ TIÊU CHÍ RUBRIC (SELF-CHECKLIST)
-
-- [x] **Tính tương tác (40%):** Hiệu ứng 60FPS mượt mà, không lag, mang lại trải nghiệm Premium Feel với 3D Flip Cards & Bezier Lab.
-- [x] **Tính nhất quán (20%):** Sử dụng hệ thống CSS Variables đồng bộ màu sắc, font chữ và timing curves toàn bộ trang.
-- [x] **Kỹ thuật Git (20%):** Cấu trúc repository sạch vẽ, lịch sử commit rõ ràng, file `prompt_logic.md` đầy đủ.
-- [x] **Tối ưu Mobile (20%):** Thiết kế Responsive mượt từ 320px đến 4K, 100% Transform GPU không tràn khung.
-
----
-*Báo cáo được hoàn tất bởi Mai Huy Phong cho học phần Thiết Kế Web - Đại học Lạc Hồng.*
+*Báo cáo tổng hợp được thực hiện bởi Mai Huy Phong cho Học phần Thiết Kế Web - Đại học Lạc Hồng.*
